@@ -11,6 +11,9 @@ dist
 dist-ssr
 *.local
 
+# Image originals backed up by scripts/compress-images.mjs — local only
+public/_originals/
+
 .vscode/*
 !.vscode/extensions.json
 .idea

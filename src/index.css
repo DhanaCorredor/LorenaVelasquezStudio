@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,20 +10,83 @@
   }
 
   body {
-    @apply bg-light text-text-dark;
+    @apply bg-white-pure text-graphite font-sans antialiased;
+    font-weight: 450;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'ss01' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  p {
+    @apply leading-relaxed;
+    font-weight: 450;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  ::selection {
+    @apply bg-ink text-white-pure;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-3 bg-accent text-white rounded-lg font-medium tracking-wide hover:bg-accent-dark transition-all duration-300 shadow-md hover:shadow-lg hover:translate-y-[-2px];
+    @apply px-8 py-4 bg-ink text-white-pure rounded-none font-bold tracking-widest hover:bg-pink-dark hover:scale-[1.03] hover:shadow-glow active:scale-95 transition-all duration-300 shadow-soft inline-flex items-center justify-center gap-2 uppercase text-xs;
   }
 
   .btn-secondary {
-    @apply px-8 py-3 border-2 border-accent text-accent rounded-lg font-medium tracking-wide hover:bg-accent hover:text-white transition-all duration-300;
+    @apply px-8 py-4 border-2 border-ink text-ink rounded-none font-bold tracking-widest hover:bg-ink hover:text-white-pure hover:scale-[1.03] hover:shadow-glow active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 uppercase text-xs;
   }
 
-  .btn-outline {
-    @apply px-8 py-3 border border-light-gray text-text-dark rounded-lg font-medium hover:bg-light-gray transition-all duration-300;
+  .btn-heart {
+    @apply px-8 py-4 bg-pink-dark text-white-pure rounded-none font-bold tracking-widest hover:bg-pink-deep hover:scale-[1.03] hover:shadow-glow active:scale-95 transition-all duration-300 shadow-soft inline-flex items-center justify-center gap-2 uppercase text-xs;
   }
+
+  /* Buttons designed to sit on the wine/burgundy hero */
+  .btn-on-wine {
+    @apply px-8 py-4 bg-white-pure text-wine-dark rounded-none font-bold tracking-widest hover:bg-pink-light hover:scale-[1.03] hover:shadow-glow active:scale-95 transition-all duration-300 shadow-soft inline-flex items-center justify-center gap-2 uppercase text-xs;
+  }
+
+  .btn-on-wine-outline {
+    @apply px-8 py-4 border-2 border-white-pure text-white-pure rounded-none font-bold tracking-widest hover:bg-white-pure hover:text-wine-dark hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 uppercase text-xs;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-3 text-ink border-b-2 border-ink/30 hover:border-pink-dark hover:text-pink-dark transition-all duration-300 inline-flex items-center gap-2 tracking-widest uppercase text-xs font-bold;
+  }
+
+  .eyebrow {
+    @apply text-pink-dark uppercase tracking-editorial text-[0.78rem] font-bold;
+  }
+
+  .h-display {
+    @apply font-display text-ink leading-[1.05];
+    font-weight: 600;
+  }
+
+  .container-x {
+    @apply max-w-7xl mx-auto px-5 sm:px-6 lg:px-12;
+  }
+
+  .editorial-line::before {
+    content: '';
+    @apply block w-12 h-0.5 bg-pink-dark mb-6;
+  }
+
+  .body-text {
+    @apply text-graphite leading-relaxed;
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
