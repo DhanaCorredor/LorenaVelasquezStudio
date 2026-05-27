@@ -145,7 +145,7 @@ export default function Services() {
                       <span className="text-pink-dark text-[0.65rem] md:text-xs font-bold tracking-widest pt-1 flex-shrink-0">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <h3 className="font-display font-semibold text-lg md:text-[1.65rem] text-ink leading-tight group-hover:text-pink-dark transition-colors">
+                      <h3 className="font-display font-bold text-lg md:text-[1.65rem] text-ink leading-tight group-hover:text-pink-dark transition-colors">
                         {service.title}
                       </h3>
                     </div>
@@ -156,18 +156,19 @@ export default function Services() {
                     </p>
 
                     {/* Price + duration */}
-                    <div className="flex items-end justify-between pt-3 md:pt-4 border-t border-line">
-                      <div>
+                    <div className="flex items-end justify-between pt-3 md:pt-4 border-t border-line gap-3">
+                      <div className="flex items-baseline gap-2 flex-wrap">
                         <p className="font-display text-2xl md:text-4xl text-ink font-bold leading-none">
                           {service.price}
                         </p>
-                        <p className="text-[0.65rem] md:text-xs uppercase tracking-widest text-stone font-bold mt-1.5 md:mt-2 flex items-center gap-1">
+                        <span className="text-stone/60 text-lg md:text-2xl leading-none">—</span>
+                        <p className="text-[0.65rem] md:text-xs uppercase tracking-widest text-stone font-bold leading-none flex items-center gap-1">
                           <Clock className="w-2.5 h-2.5 md:w-3 md:h-3" /> {service.duration}
                         </p>
                       </div>
 
                       {/* Reserve action */}
-                      <span className="inline-flex items-center gap-1 md:gap-1.5 bg-ink text-white-pure text-[0.65rem] md:text-xs uppercase tracking-widest font-bold px-3 md:px-4 py-2 md:py-3 group-hover:bg-pink-dark group-hover:gap-3 group-hover:shadow-glow transition-all">
+                      <span className="inline-flex items-center gap-1 md:gap-1.5 bg-ink text-white-pure text-[0.65rem] md:text-xs uppercase tracking-widest font-bold px-3 md:px-4 py-2 md:py-3 group-hover:bg-pink-dark group-hover:gap-3 group-hover:shadow-glow transition-all flex-shrink-0">
                         Reservar <ChevronRight className="w-3 h-3 md:w-3.5 md:h-3.5" />
                       </span>
                     </div>

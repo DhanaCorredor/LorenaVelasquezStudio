@@ -36,42 +36,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-white-pure">
-      {/* Mobile sticky bottom bar — primary conversion path */}
-      <div
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 shadow-editorial"
-        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
-      >
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-[#25D366] text-white py-4 flex items-center justify-center gap-2 font-bold tracking-widest uppercase text-xs active:bg-[#1faa50]"
-          aria-label="Contactar por WhatsApp"
-        >
-          <WhatsAppIcon className="w-5 h-5" />
-          WhatsApp
-        </a>
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-ink text-white-pure py-4 flex items-center justify-center gap-2 font-bold tracking-widest uppercase text-xs active:bg-pink-dark"
-          aria-label="Reservar cita online"
-        >
-          <Calendar className="w-5 h-5" />
-          Reservar
-        </a>
-      </div>
-
-      {/* Desktop floating buttons */}
+      {/* Floating WhatsApp button — mobile + desktop */}
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="hidden md:flex fixed bottom-6 left-6 z-50 w-16 h-16 rounded-full bg-[#25D366] hover:bg-[#1faa50] text-white shadow-editorial hover:scale-110 transition-all duration-300 items-center justify-center"
+        className="fixed bottom-5 left-5 md:bottom-6 md:left-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] hover:bg-[#1faa50] text-white shadow-editorial hover:scale-110 transition-all duration-300 flex items-center justify-center"
+        style={{ marginBottom: 'env(safe-area-inset-bottom)' }}
         aria-label="Contactar por WhatsApp"
       >
-        <WhatsAppIcon className="w-8 h-8" />
+        <WhatsAppIcon className="w-7 h-7 md:w-8 md:h-8" />
         <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-pink-dark rounded-full animate-pulse"></span>
       </a>
       <a
@@ -184,7 +158,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
 
       {/* Footer — compact */}
-      <footer className="bg-ink text-white-pure/70 pt-8 pb-20 md:pb-8 border-t border-ink-soft">
+      <footer className="bg-ink text-white-pure/70 pt-8 pb-8 border-t border-ink-soft">
         <div className="container-x">
           <div className="grid md:grid-cols-4 gap-6 md:gap-8 mb-6">
             <div className="md:col-span-2">
