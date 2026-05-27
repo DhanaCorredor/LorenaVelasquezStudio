@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { GraduationCap, Sparkles, Award, Mail, ArrowRight } from 'lucide-react';
-import { COURSE_TRACKS } from '../data';
+import { COURSE_TRACKS, WHATSAPP_BASE } from '../data';
 import { SignatureHeart } from '../components/SignatureHeart';
 import { PageSeo } from '../components/PageSeo';
 
@@ -13,8 +13,8 @@ export default function Courses() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !name) return;
-    // TODO: send to backend (Mailchimp/Brevo) including selected `track`
-    console.log('Lista de espera:', { name, email, track });
+    const message = `Hola Lorena! Quiero apuntarme a la lista de espera del curso.\n\nNombre: ${name}\nEmail: ${email}\nTrack: ${track}`;
+    window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     setSent(true);
     setName('');
     setEmail('');
@@ -137,8 +137,13 @@ export default function Courses() {
           {sent ? (
             <div className="bg-white-pure border border-line p-10 text-center">
               <SignatureHeart className="w-12 h-12 text-pink-dark mx-auto mb-4" />
-              <p className="font-display text-2xl text-ink mb-2">¡Apuntada!</p>
-              <p className="text-graphite">Te escribiré pronto con todos los detalles.</p>
+              <p className="font-display text-2xl text-ink mb-2">¡Solo falta un paso!</p>
+              <p className="text-graphite">
+                Acabamos de abrir WhatsApp con tu mensaje listo para enviar. Si no se abrió,{' '}
+                <a href={WHATSAPP_BASE} target="_blank" rel="noopener noreferrer" className="underline text-pink-dark">
+                  escríbeme por aquí
+                </a>.
+              </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white-pure border border-line p-8 md:p-10 space-y-5">

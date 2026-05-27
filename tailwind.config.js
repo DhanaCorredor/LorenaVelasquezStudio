@@ -26,48 +26,6 @@ export default {
           dark: '#3F1020',
           light: '#7A2640',
         },
-
-        // Backwards-compat (existing class names keep working with new values)
-        'charcoal': {
-          DEFAULT: '#0A0A0A',
-          soft: '#2A2A2A',
-        },
-        'mist': '#6B6B6B',
-        'mist-light': '#9B9B9B',
-        'blush': {
-          DEFAULT: '#E8C5C5',
-          light: '#F4DDDD',
-          dark: '#C99B9F',
-        },
-        'heart': {
-          DEFAULT: '#C99B9F',
-          dark: '#A87580',
-          light: '#E8C5C5',
-        },
-        'ivory': '#FFFFFF',
-        'ivory-warm': '#FAFAFA',
-        'ivory-soft': '#FFFFFF',
-        'cream': '#FFFFFF',
-        'cream-warm': '#FAFAFA',
-        'gold': '#C99B9F',
-        'gold-light': '#E8C5C5',
-        'rose': {
-          DEFAULT: '#E8C5C5',
-          light: '#F4DDDD',
-          dark: '#C99B9F',
-        },
-        'burgundy': {
-          DEFAULT: '#0A0A0A',
-          dark: '#000000',
-          light: '#1A1A1A',
-        },
-        'primary': '#0A0A0A',
-        'accent': '#C99B9F',
-        'accent-dark': '#A87580',
-        'light': '#FFFFFF',
-        'light-gray': '#E8E8E8',
-        'text-dark': '#1A1A1A',
-        'text-light': '#6B6B6B',
       },
       fontFamily: {
         'display': ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -76,11 +34,6 @@ export default {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-ivory': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)',
-        'gradient-cream': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)',
-        'gradient-charcoal': 'linear-gradient(180deg, #0A0A0A 0%, #000000 100%)',
-        'gradient-burgundy': 'linear-gradient(180deg, #0A0A0A 0%, #000000 100%)',
-        'gradient-rose': 'linear-gradient(135deg, #F4DDDD 0%, #E8C5C5 100%)',
         'gradient-pink': 'linear-gradient(135deg, #F4DDDD 0%, #E8C5C5 100%)',
       },
       boxShadow: {
