@@ -45,36 +45,34 @@ export default function Home() {
         <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-pink/15 pointer-events-none" style={{ filter: 'blur(80px)' }}></div>
 
         <div className="container-x relative z-10 w-full">
-          {/* MOBILE layout — editorial split: title left, photo right */}
-          <div className="sm:hidden">
+          {/* MOBILE layout — centered editorial stack */}
+          <div className="sm:hidden text-center">
             {/* Brand + credentials — compact header */}
-            <p className="text-[0.65rem] uppercase tracking-editorial font-bold text-pink-light mb-1.5">
+            <p className="text-[0.6rem] uppercase tracking-editorial font-bold text-pink-light mb-1.5">
               Lorena Velásquez Studio
             </p>
-            <p className="font-display italic text-sm text-pink-light/85 leading-snug mb-5">
+            <p className="font-display italic text-xs text-pink-light/85 leading-snug mb-4 max-w-[18rem] mx-auto">
               Técnico Manicurista Profesional e Instructora Certificada.
             </p>
 
-            {/* Editorial split: BIG title (left) + photo (right, centered) */}
-            <div className="relative flex items-center gap-3 mb-6">
-              <h1 className="relative z-10 flex-1 font-display font-semibold leading-[0.95] text-white-pure text-[2.5rem] text-balance">
-                Tu espacio para <span className="italic text-pink-light">embellecer</span> tus uñas.
-              </h1>
-              <picture className="w-40 flex-shrink-0">
-                <source srcSet="/lorena-pink-suit.webp" type="image/webp" />
-                <img
-                  src="/lorena-pink-suit.png"
-                  alt="Lorena Velásquez"
-                  className="w-full h-auto"
-                  style={{
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-                    maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-                  }}
-                  fetchPriority="high"
-                  decoding="async"
-                />
-              </picture>
-            </div>
+            {/* Centered stack: title overlaps photo top */}
+            <h1 className="relative z-10 font-display font-semibold leading-[0.95] text-white-pure text-[2.75rem] text-balance mb-[-1.5rem]">
+              Tu espacio para <span className="italic text-pink-light">embellecer</span> tus uñas.
+            </h1>
+            <picture className="block w-72 mx-auto mb-2">
+              <source srcSet="/lorena-pink-suit.webp" type="image/webp" />
+              <img
+                src="/lorena-pink-suit.png"
+                alt="Lorena Velásquez"
+                className="w-full h-auto"
+                style={{
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                  maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                }}
+                fetchPriority="high"
+                decoding="async"
+              />
+            </picture>
 
             {/* Primary CTA */}
             <Link to="/servicios" className="btn-on-wine w-full">
@@ -92,7 +90,7 @@ export default function Home() {
                   ['+10', 'Años de experiencia'],
                   ['+50', 'Clientas satisfechas'],
                 ].map(([n, l]) => (
-                  <div key={l} className="border-l-2 border-pink-light pl-3">
+                  <div key={l}>
                     <p className="font-display text-2xl text-white-pure font-bold leading-none">{n}</p>
                     <p className="text-[0.6rem] uppercase tracking-widest text-pink-light/80 mt-1 font-bold">{l}</p>
                   </div>
@@ -100,8 +98,8 @@ export default function Home() {
               </div>
 
               <div className="space-y-1.5 text-pink-light/80 text-xs">
-                <div className="flex items-start gap-2"><MapPin className="w-3.5 h-3.5 text-pink-light mt-0.5 flex-shrink-0" /> <span className="font-bold">{LOCATION}</span></div>
-                <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5 text-pink-light flex-shrink-0" /> <span className="font-bold">{HOURS}</span></div>
+                <div className="flex items-start justify-center gap-2"><MapPin className="w-3.5 h-3.5 text-pink-light mt-0.5 flex-shrink-0" /> <span className="font-bold">{LOCATION}</span></div>
+                <div className="flex items-center justify-center gap-2"><Clock className="w-3.5 h-3.5 text-pink-light flex-shrink-0" /> <span className="font-bold">{HOURS}</span></div>
               </div>
             </div>
           </div>
@@ -179,6 +177,10 @@ export default function Home() {
                     src="/lorena-pink-suit.png"
                     alt="Lorena Velásquez, técnico manicurista profesional en Moratalaz, Madrid"
                     className="relative w-full h-auto"
+                    style={{
+                      WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
+                      maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
+                    }}
                     decoding="async"
                   />
                 </picture>
@@ -285,18 +287,18 @@ export default function Home() {
                 <p className="hidden sm:block text-[0.6rem] uppercase tracking-widest font-bold mb-2 text-pink-dark group-hover:text-pink-light transition-colors">
                   {s.category}
                 </p>
-                <h3 className="font-display font-semibold text-[0.7rem] sm:text-base text-ink group-hover:text-white-pure leading-tight transition-colors line-clamp-3">
+                <h3 className="font-display font-bold text-sm sm:text-base text-ink group-hover:text-white-pure leading-tight transition-colors line-clamp-3">
                   {s.title}
                 </h3>
                 <div className="mt-auto pt-2 sm:pt-3 border-t border-line group-hover:border-white-pure/15 transition-colors">
-                  <p className="font-display text-base sm:text-2xl font-bold text-ink group-hover:text-pink-light leading-none transition-colors">
-                    {s.price}
-                  </p>
-                  <div className="flex items-center justify-between mt-1 sm:mt-2">
-                    <p className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-widest text-stone group-hover:text-white-pure/60 font-bold flex items-center gap-1 transition-colors">
-                      <Clock className="w-2.5 h-2.5" /> {s.duration}
+                  <div className="flex items-baseline gap-1.5 flex-wrap">
+                    <p className="font-display text-lg sm:text-2xl font-bold text-ink group-hover:text-pink-light leading-none transition-colors">
+                      {s.price}
                     </p>
-                    <ChevronRight className="hidden sm:block w-3.5 h-3.5 text-ink group-hover:text-pink-light group-hover:translate-x-1 transition-all" />
+                    <span className="text-stone/60 group-hover:text-white-pure/40 text-sm sm:text-base leading-none transition-colors">—</span>
+                    <p className="text-[0.7rem] sm:text-xs font-bold text-stone group-hover:text-white-pure/70 leading-none transition-colors">
+                      {s.duration}
+                    </p>
                   </div>
                 </div>
               </a>
