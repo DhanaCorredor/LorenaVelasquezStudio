@@ -2,7 +2,7 @@
 
 Sitio web del estudio de manicura premium y academia de Lorena Velásquez (Moratalaz, Madrid). Cliente real, en producción.
 
-**Live:** https://lorenavelasquezstudio.com
+**Live:** https://lorena-velasquez-studio.vercel.app
 
 ## Stack
 
