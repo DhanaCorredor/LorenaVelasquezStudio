@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import {
   BOOKING_URL, INSTAGRAM_URL, TIKTOK_URL, HOURS, LOCATION,
-  SERVICE_CATEGORIES, HOME_PREVIEW_SLUGS,
+  SERVICE_CATEGORIES, HOME_PREVIEW_SLUGS, TESTIMONIALS,
 } from '../data';
 import { SignatureHeart } from '../components/SignatureHeart';
 import { TikTokIcon } from '../components/TikTokIcon';
@@ -310,6 +310,44 @@ export default function Home() {
             <Link to="/servicios" className="btn-primary w-full">
               Ver catálogo completo <ChevronRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials — social proof */}
+      <section className="py-12 md:py-20 bg-white-pure border-t border-line relative overflow-hidden">
+        <div className="hidden lg:block absolute -bottom-12 left-0 font-display italic text-[12rem] leading-none text-line/40 select-none pointer-events-none">03</div>
+
+        <div className="container-x relative">
+          <div className="text-center mb-8 md:mb-12 max-w-2xl mx-auto">
+            <span className="eyebrow">Lo que dicen mis clientas</span>
+            <h2 className="h-display text-3xl sm:text-4xl md:text-5xl mt-3 text-balance">
+              Manos que <span className="italic text-pink-dark">vuelven</span>.
+            </h2>
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <div className="flex">{[...Array(5)].map((_, i) => (<Star key={i} className="w-4 h-4 fill-pink-dark text-pink-dark" />))}</div>
+              <span className="text-xs uppercase tracking-widest text-stone font-bold">5.0 · +50 clientas satisfechas</span>
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
+            {TESTIMONIALS.map((t, i) => (
+              <figure
+                key={i}
+                className={`bg-white-pure border border-line p-5 md:p-7 flex flex-col ${i >= 3 ? 'hidden lg:flex' : ''}`}
+              >
+                <div className="flex mb-3" aria-hidden="true">
+                  {[...Array(t.rating)].map((_, s) => (<Star key={s} className="w-3.5 h-3.5 fill-pink-dark text-pink-dark" />))}
+                </div>
+                <blockquote className="text-graphite text-sm md:text-base leading-relaxed flex-1">
+                  “{t.text}”
+                </blockquote>
+                <figcaption className="mt-4 pt-4 border-t border-line">
+                  <p className="font-display font-bold text-ink leading-none">{t.name}</p>
+                  <p className="text-[0.65rem] uppercase tracking-widest text-pink-dark mt-1.5 font-bold">{t.service}</p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

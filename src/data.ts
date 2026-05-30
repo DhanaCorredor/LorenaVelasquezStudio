@@ -1,5 +1,6 @@
 // Site constants and catalog data
 
+export const SITE_URL = 'https://lorena-velasquez-studio.vercel.app';
 export const BOOKING_URL = 'https://confirmafy.com/lorena-velasquez';
 export const INSTAGRAM_URL = 'https://www.instagram.com/lorev.studio';
 export const TIKTOK_URL = 'https://www.tiktok.com/@lorev.studio';
@@ -7,6 +8,7 @@ export const WHATSAPP_NUMBER = '+34 722 19 65 99';
 export const WHATSAPP_BASE = 'https://wa.me/34722196599';
 export const WHATSAPP_URL = `${WHATSAPP_BASE}?text=${encodeURIComponent('Hola Lorena! Me gustaría reservar una cita 💅')}`;
 export const LOCATION = 'Calle Pico de los Artilleros 146, Moratalaz · Madrid';
+export const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Calle+Pico+de+los+Artilleros+146+Moratalaz+Madrid';
 export const LOCATION_SHORT = 'Moratalaz, Madrid';
 export const HOURS = 'Lun – Sáb · 10:00 – 20:00';
 

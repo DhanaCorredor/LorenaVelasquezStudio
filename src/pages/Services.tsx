@@ -192,7 +192,7 @@ export default function Services() {
               <div key={i}>
                 <SignatureHeart className="w-7 h-7 text-pink-dark mx-auto mb-4" />
                 <h3 className="font-display text-xl md:text-2xl text-white-pure mb-2">{b.title}</h3>
-                <p className="text-stone-light text-sm leading-relaxed max-w-xs mx-auto">{b.body}</p>
+                <p className="text-pink-light/90 text-sm leading-relaxed max-w-xs mx-auto">{b.body}</p>
               </div>
             ))}
           </div>
