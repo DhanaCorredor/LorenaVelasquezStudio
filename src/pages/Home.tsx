@@ -11,6 +11,7 @@ import {
 import { SignatureHeart } from '../components/SignatureHeart';
 import { TikTokIcon } from '../components/TikTokIcon';
 import { FAQ } from '../components/FAQ';
+import { Gallery } from '../components/Gallery';
 import { PageSeo } from '../components/PageSeo';
 
 export default function Home() {
@@ -351,6 +352,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Gallery — Instagram work showcase */}
+      <Gallery />
 
       {/* Courses Teaser — compact banner */}
       <section className="py-8 md:py-10 bg-wine text-white-pure relative overflow-hidden">

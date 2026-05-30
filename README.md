@@ -31,6 +31,7 @@ Sitio web del estudio de manicura premium y academia de Lorena Velásquez (Morat
 - **Mobile-first con layouts dedicados.** El hero, el catálogo y el FAQ tienen variantes mobile/desktop separadas en lugar de un único responsive forzado — más trabajo, mejor jerarquía visual en cada breakpoint.
 - **Reservas externalizadas.** Confirmafy gestiona el calendario; el sitio se enfoca en presentación y conversión, sin estado de servidor.
 - **Lead capture por WhatsApp.** El formulario de lista de espera de cursos abre WhatsApp con el mensaje prellenado en lugar de mantener un backend o servicio de email. Cero mantenimiento, 100% de los leads llegan a un canal que la dueña ya revisa.
+- **Galería curada (sin API).** La sección "Mis trabajos" muestra fotos seleccionadas servidas como WebP en dos tamaños (`srcset`), sin widgets externos ni tokens de Instagram. Carrusel con swipe en móvil, grid en desktop. Se actualiza dejando fotos en `public/gallery/originals/` y corriendo `npm run compress`; mientras tanto se muestran placeholders de marca.
 - **SEO local fuerte.** JSON-LD `BeautySalon` (horarios, geo, teléfono, catálogo, reseñas + `AggregateRating`) y `FAQPage` para rich snippets. `sitemap.xml` + `robots.txt`. OG image generada a 1200×630.
 - **Prerender de meta por ruta.** Al ser una SPA client-rendered, los crawlers sociales (WhatsApp, Facebook, X) no ejecutan JS. `scripts/prerender-routes.mjs` emite `servicios.html` y `cursos.html` con su `<title>`, descripción, canonical y Open Graph propios. Vercel (`cleanUrls`) los sirve antes del rewrite SPA; el bundle hidrata la ruta correcta. Google + redes ven el meta correcto de cada página.
 
@@ -98,6 +99,7 @@ public/
 ├─ og.jpg                 Imagen social 1200×630 (generada)
 ├─ robots.txt
 ├─ sitemap.xml
+├─ gallery/               WebP de la galería (srcset 400/800) + originals/
 └─ *.png / *.webp         Assets servidos
 scripts/
 ├─ compress-images.mjs    Pipeline Sharp
