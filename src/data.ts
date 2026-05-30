@@ -262,20 +262,6 @@ export const FAQS = [
   },
 ];
 
-// Instagram gallery — curated. Drop matching photos into
-// public/gallery/originals/ (work-1.jpg … work-6.jpg) and run `npm run compress`.
-// Until then, on-brand placeholders are shown.
-export type GalleryItem = { id: string; alt: string };
-
-export const GALLERY: GalleryItem[] = [
-  { id: 'work-1', alt: 'Manicura semipermanente en tono nude con acabado brillante' },
-  { id: 'work-2', alt: 'Uñas acrílicas baby boomer con difuminado francés' },
-  { id: 'work-3', alt: 'Nail art floral hecho a mano' },
-  { id: 'work-4', alt: 'Pedicura spa con esmaltado clásico' },
-  { id: 'work-5', alt: 'Extensiones de uñas largas estilo almendra' },
-  { id: 'work-6', alt: 'Diseño de uñas minimalista con detalles dorados' },
-];
-
 export const COURSE_TRACKS = [
   {
     label: 'Desde Cero',

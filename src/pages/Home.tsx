@@ -11,7 +11,6 @@ import {
 import { SignatureHeart } from '../components/SignatureHeart';
 import { TikTokIcon } from '../components/TikTokIcon';
 import { FAQ } from '../components/FAQ';
-import { Gallery } from '../components/Gallery';
 import { PageSeo } from '../components/PageSeo';
 
 export default function Home() {
@@ -315,8 +314,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials — social proof */}
-      <section className="py-12 md:py-20 bg-white-pure border-t border-line relative overflow-hidden">
+      {/* Testimonials — social proof (desktop only) */}
+      <section className="hidden sm:block py-12 md:py-20 bg-white-pure border-t border-line relative overflow-hidden">
         <div className="hidden lg:block absolute -bottom-12 left-0 font-display italic text-[12rem] leading-none text-line/40 select-none pointer-events-none">03</div>
 
         <div className="container-x relative">
@@ -331,11 +330,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
-            {TESTIMONIALS.map((t, i) => (
+          <div className="grid sm:grid-cols-3 gap-3 md:gap-5">
+            {TESTIMONIALS.slice(0, 3).map((t, i) => (
               <figure
                 key={i}
-                className={`bg-white-pure border border-line p-5 md:p-7 flex flex-col ${i >= 3 ? 'hidden lg:flex' : ''}`}
+                className="bg-white-pure border border-line p-5 md:p-7 flex flex-col"
               >
                 <div className="flex mb-3" aria-hidden="true">
                   {[...Array(t.rating)].map((_, s) => (<Star key={s} className="w-3.5 h-3.5 fill-pink-dark text-pink-dark" />))}
@@ -352,9 +351,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Gallery — Instagram work showcase */}
-      <Gallery />
 
       {/* Courses Teaser — compact banner */}
       <section className="py-8 md:py-10 bg-wine text-white-pure relative overflow-hidden">
