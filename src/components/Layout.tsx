@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Instagram, Calendar, Menu, X, MapPin, Clock, Phone } from 'lucide-react';
-import { BOOKING_URL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL, WHATSAPP_NUMBER, HOURS, LOCATION } from '../data';
+import { BOOKING_URL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL, WHATSAPP_NUMBER, HOURS, LOCATION, MAPS_URL } from '../data';
 import { SignatureHeart } from './SignatureHeart';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { TikTokIcon } from './TikTokIcon';
@@ -36,6 +36,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-white-pure">
+      {/* Skip link — keyboard users jump straight to content */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-ink focus:text-white-pure focus:px-4 focus:py-2 focus:text-xs focus:uppercase focus:tracking-widest focus:font-bold"
+      >
+        Saltar al contenido
+      </a>
+
       {/* Floating WhatsApp button — mobile + desktop */}
       <a
         href={WHATSAPP_URL}
@@ -109,14 +117,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <button
             className={`md:hidden transition-colors ${navSolid ? 'text-ink' : 'text-white-pure'}`}
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menú"
+            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {mobileOpen && (
-          <div className="md:hidden bg-white-pure border-t border-line shadow-soft">
+          <div id="mobile-menu" className="md:hidden bg-white-pure border-t border-line shadow-soft">
             <div className="container-x py-3">
               {navItems.map((it) => (
                 <NavLink
@@ -155,7 +165,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         )}
       </nav>
 
-      <main>{children}</main>
+      <main id="main">{children}</main>
 
       {/* Footer — compact */}
       <footer className="bg-ink text-white-pure/70 pt-8 pb-8 border-t border-ink-soft">
@@ -189,7 +199,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="text-[0.6rem] uppercase tracking-editorial text-pink-dark mb-2 font-bold">Encuéntrame</h4>
               <ul className="space-y-1.5 text-xs">
-                <li className="flex items-start gap-1.5"><MapPin className="w-3 h-3 text-pink-dark mt-0.5 flex-shrink-0" /><span>{LOCATION}</span></li>
+                <li><a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex items-start gap-1.5 hover:text-pink-dark transition-colors"><MapPin className="w-3 h-3 text-pink-dark mt-0.5 flex-shrink-0" /><span>{LOCATION} · <span className="underline">Cómo llegar</span></span></a></li>
                 <li className="flex items-center gap-1.5"><Clock className="w-3 h-3 text-pink-dark flex-shrink-0" /> {HOURS}</li>
                 <li><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors flex items-center gap-1.5"><Phone className="w-3 h-3 text-pink-dark flex-shrink-0" /> {WHATSAPP_NUMBER}</a></li>
               </ul>

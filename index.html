@@ -33,6 +33,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap"
+    />
+
+    <!-- Preload the LCP hero portrait (WebP) so it paints as early as possible -->
+    <link rel="preload" as="image" href="/lorena-pink-suit.webp" type="image/webp" fetchpriority="high" />
 
     <script type="application/ld+json">
       {
@@ -77,7 +84,32 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Uñas Acrílicas Baby Boomer" }, "price": "59.90", "priceCurrency": "EUR" },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplicación de Uñas Soft Gel" }, "price": "35.00", "priceCurrency": "EUR" }
           ]
-        }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "50",
+          "bestRating": "5"
+        },
+        "review": [
+          { "@type": "Review", "author": { "@type": "Person", "name": "María G." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Es mi hora favorita del mes. Salgo del estudio con las manos perfectas y la cabeza descansada." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Andrea L." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Llevaba años con uñas frágiles. Lorena me hizo unas extensiones perfectas, naturales, resistentes." },
+          { "@type": "Review", "author": { "@type": "Person", "name": "Patricia M." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "El estudio es un refugio. Limpísimo, tranquilo, bonito. El resultado siempre, siempre, impecable." }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Cuánto dura el esmaltado semipermanente?", "acceptedAnswer": { "@type": "Answer", "text": "Entre 3 y 4 semanas sin saltos ni levantamientos. La técnica rusa con base rubber permite una durabilidad superior." } },
+          { "@type": "Question", "name": "¿Daña mis uñas la manicura semipermanente?", "acceptedAnswer": { "@type": "Answer", "text": "En absoluto si se hace bien. Mi protocolo respeta totalmente la lámina natural: no limo la uña al retirar, uso productos de alta gama y aplico tratamiento hidratante en cada cita." } },
+          { "@type": "Question", "name": "¿Cómo reservo mi cita?", "acceptedAnswer": { "@type": "Answer", "text": "Desde el botón Reservar eliges servicio, día y hora en mi calendario online. Recibirás confirmación inmediata por email." } },
+          { "@type": "Question", "name": "¿Política de cancelación?", "acceptedAnswer": { "@type": "Answer", "text": "Puedes cambiar o cancelar tu cita hasta 24h antes sin coste. Cancelaciones de última hora o ausencias requieren el 50% del servicio para próximas reservas." } },
+          { "@type": "Question", "name": "¿Dónde está el estudio?", "acceptedAnswer": { "@type": "Answer", "text": "Calle Pico de los Artilleros 146, barrio de Moratalaz, Madrid. Bien comunicado con metro y bus." } },
+          { "@type": "Question", "name": "¿Aceptáis pago con tarjeta?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, aceptamos efectivo, tarjeta y Bizum. El pago se realiza al finalizar el servicio." } }
+        ]
       }
     </script>
   </head>

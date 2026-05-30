@@ -30,10 +30,7 @@ export function FAQ({
 
         <div className="border-t border-line">
           {FAQS.map((faq, i) => (
-            <div
-              key={i}
-              className={`border-b border-line ${i < 2 ? 'hidden sm:block' : ''}`}
-            >
+            <div key={i} className="border-b border-line">
               <button
                 onClick={() => setActive(active === i ? null : i)}
                 className="w-full py-3.5 md:py-4 flex items-start justify-between gap-3 text-left hover:text-pink-dark transition-colors group"

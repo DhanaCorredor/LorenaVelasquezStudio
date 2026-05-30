@@ -50,7 +50,7 @@ export default function Courses() {
             <br />
             <span className="italic text-pink-light">a tu medida</span>.
           </h1>
-          <p className="text-lg md:text-xl text-stone-light max-w-2xl leading-relaxed mb-10">
+          <p className="text-lg md:text-xl text-pink-light/90 max-w-2xl leading-relaxed mb-10">
             Estoy preparando un programa de formación 100% personalizado. Apúntate a la lista de espera y serás la primera en conocer las plazas, fechas y condiciones.
           </p>
 
@@ -148,10 +148,12 @@ export default function Courses() {
           ) : (
             <form onSubmit={handleSubmit} className="bg-white-pure border border-line p-8 md:p-10 space-y-5">
               <div>
-                <label className="block text-[0.65rem] uppercase tracking-editorial font-semibold text-ink mb-2">Tu nombre</label>
+                <label htmlFor="waitlist-name" className="block text-[0.65rem] uppercase tracking-editorial font-semibold text-ink mb-2">Tu nombre</label>
                 <input
+                  id="waitlist-name"
                   type="text"
                   required
+                  autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Cómo te llamas"
@@ -160,10 +162,12 @@ export default function Courses() {
               </div>
 
               <div>
-                <label className="block text-[0.65rem] uppercase tracking-editorial font-semibold text-ink mb-2">Email</label>
+                <label htmlFor="waitlist-email" className="block text-[0.65rem] uppercase tracking-editorial font-semibold text-ink mb-2">Email</label>
                 <input
+                  id="waitlist-email"
                   type="email"
                   required
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="tu@email.com"
@@ -171,14 +175,15 @@ export default function Courses() {
                 />
               </div>
 
-              <div>
-                <label className="block text-[0.65rem] uppercase tracking-editorial font-semibold text-ink mb-2">¿Qué track te interesa?</label>
+              <fieldset>
+                <legend className="block text-[0.65rem] uppercase tracking-editorial font-semibold text-ink mb-2">¿Qué track te interesa?</legend>
                 <div className="grid sm:grid-cols-3 gap-2">
                   {COURSE_TRACKS.map((tr) => (
                     <button
                       key={tr.label}
                       type="button"
                       onClick={() => setTrack(tr.label)}
+                      aria-pressed={track === tr.label}
                       className={`px-3 py-2.5 text-xs uppercase tracking-widest border transition-all ${
                         track === tr.label ? 'bg-ink text-white-pure border-ink' : 'bg-white-pure text-ink border-ink/15 hover:border-ink'
                       }`}
@@ -187,7 +192,7 @@ export default function Courses() {
                     </button>
                   ))}
                 </div>
-              </div>
+              </fieldset>
 
               <button type="submit" className="btn-primary w-full">
                 Apuntarme a la lista <ArrowRight className="w-4 h-4" />

@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { SITE_URL } from '../data';
 
 type Props = {
   /** Page title (appended to brand) */
@@ -16,10 +18,13 @@ const DEFAULT_DESCRIPTION =
  * Doesn't require react-helmet — minimal overhead.
  */
 export function PageSeo({ title, description }: Props) {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     document.title = `${title} · ${BRAND}`;
 
     const desc = description ?? DEFAULT_DESCRIPTION;
+    const canonicalUrl = `${SITE_URL}${pathname === '/' ? '' : pathname}`;
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -42,9 +47,19 @@ export function PageSeo({ title, description }: Props) {
 
     setMeta('meta[property="og:title"]', 'content', `${title} · ${BRAND}`);
     setMeta('meta[property="og:description"]', 'content', desc);
+    setMeta('meta[property="og:url"]', 'content', canonicalUrl);
     setMeta('meta[name="twitter:title"]', 'content', `${title} · ${BRAND}`);
     setMeta('meta[name="twitter:description"]', 'content', desc);
-  }, [title, description]);
+
+    // Canonical — keep it in sync with the active route
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', canonicalUrl);
+  }, [title, description, pathname]);
 
   return null;
 }
